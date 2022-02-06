@@ -2,10 +2,11 @@
     display: flex;
     position: relative;
     width: 80vw;
-    margin: 20px auto 10px auto;
+    margin: 30px auto 20px auto;
     .review-child{
         align-items: center;
         justify-content: center;
+        margin-top: 50px;
         span{
             position: relative;
             display: flex;
@@ -23,7 +24,9 @@
         }   
     }
 }
-
+#comma{
+    margin-top: 30px;
+}
 
 #single-unit{
     position: absolute;

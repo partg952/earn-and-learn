@@ -12,7 +12,7 @@ nav{
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: 600;
-        transform: translateY(0px);
+        transform: translateX(-400px);
         font-size: 16px;
         line-height: 22px;
         text-align: center;
@@ -25,9 +25,9 @@ nav{
     }
     #close-menu{
         display: none;
-        height: 20px;
-        width: 20px;
-        margin: 0 auto 0 auto;
+        height: 30px;
+        width: 30px;
+        margin-left: auto;
     }
     #open-menu{
         display: none;
@@ -53,12 +53,42 @@ nav{
         z-index: 9999999;
         display: block;
         position: fixed;
-        width: 100vw;
+        height: 100vh;
+        width: 60vw;
         top: 0;
+        bottom: 0;
         right: 0;
-        left: 0;
-        background-color: #E5E5E5;
-        transform: translateY(-400px);
+        background-color: white;
+        transform: translateX(400px);
+        p{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 130%;
+            img{
+                height: 20px;
+                transition: all 200ms ease;
+            }
+            &:hover{
+                img{
+                    margin-right: 20px;
+                }
+            }
+        }
+        #create-account{
+            margin-top: 60vh;
+            width: 140%;
+            font-size: 14px;
+            img{
+                margin-right: 30px;
+                transition: all 200ms ease;
+            }
+             &:hover{
+                img{
+                    margin-right: 35px;
+                }
+            }
+        }
     }
     
 }

@@ -22,7 +22,9 @@ h1{
     
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    div{
+    
+}
+.steps-card{
         background-color: white;
         border-radius: 6px;
         cursor: pointer;
@@ -31,9 +33,9 @@ h1{
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
         height: 250px;
         width: 250px;
-        margin: 10px;
+        margin: 10px auto 10px auto;
         img{
-            background-color: transparent;
+            // background-color: transparent;
             height: 80%;
             width: 90%;
             margin: 0;
@@ -57,6 +59,41 @@ h1{
             
         }
     }
+
+
+.steps-card-mobile{
+        background-color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 200ms ease;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        height: 250px;
+        width: 250px;
+        margin: 10px auto 10px auto;
+        img{
+            height: 80%;
+            width: 90%;
+            margin: 0;
+        }
+        h5{
+            margin: 0;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: 600;
+            font-size: auto;
+            line-height: 42px;
+            /* identical to box height */
+
+            text-align: center;
+            letter-spacing: 0.05em;
+
+            color: #3183ED;
+        }
+        &:hover{
+            transform:scale(1.1);
+            
+        }
 }
 
 #first-unit{
