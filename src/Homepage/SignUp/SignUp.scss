@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+#main-box{
+    width: 60vw;
+    background-color: red;
+    margin: 10px auto 10px auto;
+    text-align: left;
+    background: #F3FBFF;
+    box-shadow: 4px 4px 13px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 10px 10px 40px 30px;
+    font-family: 'Poppins';
+    input{
+        padding: 10px;
+        margin: 10px;
+        border: 0px solid transparent;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.623);
+        background-color: transparent;
+        font-family: 'Poppins';
+        outline: none;
+    }
+    label{
+        margin: 10px;
+    }
+    input[type="checkbox"]{
+        background-color: black;
+        margin: 10px;
+    }
+    #simple-login{
+        height: 400px;
+        width: auto;
+        float: right;
+    }
+
+    #buttons{
+        display: flex;
+        align-items: center;
+        #create-account{
+            background: #60CC86;
+            box-shadow: 0px 10.0109px 25.0273px rgba(21, 37, 72, 0.1);
+            border-radius: 8px;
+
+            /* Inside auto layout */
+
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            margin: 20px;
+            padding: 10px;
+            border: 0;
+            outline: none;
+            font-family: 'Poppins';
+            font-weight: bolder;
+            color: white;
+            font-size: 20px;
+        }
+
+        #google{
+            display: flex;
+            align-items: center;
+            background: #FFFFFF;
+            border: 1px solid #3D3D3A;
+            box-sizing: border-box;
+            border-radius: 8px;
+            height: 50px;
+            /* Inside auto layout */
+            font-size: 18px;
+            flex: none;
+            order: 2;
+            flex-grow: 0;
+            font-family: 'Roboto', sans-serif;;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 21px;
+            /* identical to box height */
+
+
+            color: rgba(0, 0, 0, 0.54);
+            margin:20px;
+            *{
+                margin: 10px;
+            }
+        }
+    }
+    #name{
+    background-image: url(../../Assets/user.svg);
+    background-repeat: no-repeat;
+    text-indent: 40px;
+    background-position-y: 5px;
+    }
+    #email{
+    background-image: url(../../Assets/letter.svg);
+    background-repeat: no-repeat;
+    text-indent: 40px;
+    background-position-y: 7px;
+    }
+    .password{
+    background-image: url(../../Assets/lock.svg);
+    background-repeat: no-repeat;
+    text-indent: 40px;
+    background-position-y: 0px;
+    }
+    #number{
+    background-image: url(../../Assets/number.svg);
+    background-repeat: no-repeat;
+    text-indent: 40px;
+    background-position-y: 12px;
+    }
+    @media only screen and (max-width: 540px){
+        width: 85vw;
+        label{
+            font-size: 12px;
+            margin: 0;
+        }
+        #simple-login{
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 790px){
+        #buttons{
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 90%;
+                margin-right: 90px;
+            }
+        }
+    }
+
+}
+

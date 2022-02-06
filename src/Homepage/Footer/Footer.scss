@@ -1,0 +1,39 @@
+footer{
+    padding-bottom: 10px;
+    padding-top: 20px;
+    width: 100vw;
+    background: #3D3D3A;
+    color:white;
+    p{
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 32px;
+            font-feature-settings: 'salt' on, 'liga' off;
+            color: white;
+            margin: 20px;
+        }
+        span{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0 auto;
+            width: 100vw;
+        }
+        hr{
+            width: 90vw;
+            border: 0;
+            background-color: white;
+            padding: 1px;
+        }
+}
+
+@media only screen and (max-width: 540px){
+footer{
+    span{
+        display: block;
+    }
+}
+}

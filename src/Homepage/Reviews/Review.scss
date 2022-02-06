@@ -1,0 +1,33 @@
+#review-parent{
+    display: flex;
+    position: relative;
+    width: 80vw;
+    margin: 20px auto 10px auto;
+    .review-child{
+        align-items: center;
+        justify-content: center;
+        span{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        p{
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 32px;
+            font-feature-settings: 'salt' on, 'liga' off;
+            color: #18191F;
+        }   
+    }
+}
+
+
+#single-unit{
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    z-index: -9999;
+}

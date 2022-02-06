@@ -1,0 +1,61 @@
+{
+  "name": "earn-and-learn",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@brainhubeu/react-carousel": "^2.0.4",
+    "@emotion/styled": "^11.6.0",
+    "@material-ui/icons": "^4.11.2",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@trendyol-js/react-carousel": "^2.0.1",
+    "axios": "^0.25.0",
+    "firebase": "^9.6.6",
+    "infinite-react-carousel": "^1.2.11",
+    "pure-react-carousel": "^1.28.0",
+    "react": "^17.0.2",
+    "react-circular-carousel": "^1.0.4-0",
+    "react-dom": "^17.0.2",
+    "react-figma-embed": "^1.0.1",
+    "react-flickity-component": "^3.6.2",
+    "react-leaf-carousel": "^3.0.0",
+    "react-responsive": "^9.0.0-beta.6",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "react-scroll-parallax": "^3.0.3",
+    "react-slick": "^0.28.1",
+    "react-toastify": "^8.1.1",
+    "sass": "^1.49.0",
+    "slider": "^1.0.4",
+    "swiper": "^8.0.3",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/brainhubeu__react-carousel": "^2.0.5"
+  }
+}
