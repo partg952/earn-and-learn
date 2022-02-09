@@ -54,6 +54,21 @@
     position: relative;
     margin: 0 auto 0 auto;
 }
+
+#profiles{
+    position: absolute;
+    height: 60%;
+    bottom: 9%;
+    right: 21%;
+        @media only screen and (max-width: 800px) {
+            bottom: 5%;
+        }
+            @media only screen and (max-width: 500px) {
+            bottom: -9%;
+            }
+    
+}
+
 #people{
     position: absolute;
     right: 0;
@@ -69,11 +84,14 @@
 }
 #coin-animation{
     position: absolute;
-    top: -200px;
+    top: -15vw;
     left: 0;
     right: 0;
     width: 100%;
     margin: 0 auto 0 auto;
+    @media only screen and (max-width: 700px) {
+    top: -5vw;
+    }
 }
 }
 
@@ -88,3 +106,4 @@
     }
 }
 }
+

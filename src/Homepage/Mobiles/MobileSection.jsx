@@ -21,7 +21,7 @@ function MobileSection() {
     <>
       {query ? (
         <>
-        <img style={{height:'50px'}} src={ScrollDown} alt="" />
+        <img style={{height:'50px',marginTop:'200px'}} src={ScrollDown} alt="" />
         <div id='mobile'>
           <Swiper
             direction={"vertical"}

@@ -4,10 +4,24 @@ import CompeteAndWin from "../../Assets/compete-and-win.gif";
 import WinCashPrize from "../../Assets/win-cash-prize.gif";
 import SignUp from "../../Assets/login-step-animation.gif";
 import EnterAContest from "../../Assets/enter-a-contest.gif";
+import StudyOnline from "../../Assets/study-online.gif";
+import Analytics from "../../Assets/analysis.gif";
 import SingleUnit from "../../Assets/single-unit.png";
 import { useMediaQuery } from "react-responsive";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Arrow from '../../Assets/arrow.svg';
+import {
+  Timeline,
+  TimelineItem,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+} from "@mui/lab";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import StepConnector from '@mui/material/StepConnector';
+import Arrow from "../../Assets/arrow.svg";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -20,42 +34,88 @@ function Steps() {
     query: "(min-width:550px)",
   });
 
+  function getPosition(i) {
+    if (i % 2 == 0) {
+      return "marginRight:'auto'";
+    } else {
+      return "marginLeft:'auto'";
+    }
+  }
+
+
+  
+
+  
+  // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+  
+
   const data = [
     {
-      name: "Create Your Account",
-      image: SignUp,
+      name: "Study For Contest",
+      image: StudyOnline,
+      details:
+        "View the syllabus of the contest to know which chapters yiu need to brush up on and study hard!",
+      color: "#3183ED",
     },
     {
       name: "Join a Contest",
       image: EnterAContest,
+      details:
+        "Pay for the contests you want to join as per your preference of subjects or difficulty",
+      color: "#60CC86",
     },
     {
       name: "Compete And win",
       image: CompeteAndWin,
+      details:
+        "Try to beat others to the finish line by a stellar performance and win amazing redeemable cash prizes!",
+      color: "#EA4335",
     },
     {
       name: "Redeem amazing cash prizes",
       image: WinCashPrize,
+      details:
+        "Win real cash prizes and redeem them for anything you want! Treat yourself for your hard work!",
+      color: "#2AB7FF",
+    },
+
+    {
+      name: "Performance Report",
+      image: Analytics,
+      details:
+        "Get to know where you need more practice, why you might be making mistakes and how to Practice better!",
+
+      color: "#FF8E1D",
     },
   ];
 
   return (
     <>
       {query ? (
-        <div id="steps-parent">
+        <div>
           <h1>It’s Just a matter of a few steps and you too can win!</h1>
-
-          <div id="steps">
-            <img src={SingleUnit} id="first-unit" alt="" />
-            <img src={SingleUnit} id="second-unit" alt="" />
-            {data.map((items) => {
-              return (
-                <div className="steps-card">
-                  <img src={items.image} alt="" />
-                  <p>{items.name}</p>
-                </div>
-              );
-            })}
+          <div
+            id="steps-parent"
+            onScroll={(e)=>{
+              e.preventDefault();
+              console.log(e);
+            }}
+            style={{ overflowX: "auto"}}
+          >
+            <Stepper>
+              {data.map((items, i) => {
+                return (
+                  <Step alternativeLabel style={{ margin: "10px" }}>
+                    <StepLabel>{items.name}</StepLabel>
+                    <div className="steps-card">
+                      <img src={items.image} alt="" />
+                      <h5>{items.name}</h5>
+                      <p>{items.details}</p>
+                    </div>
+                  </Step>
+                );
+              })}
+            </Stepper>
           </div>
         </div>
       ) : (
@@ -67,7 +127,7 @@ function Steps() {
           <Swiper
             direction={"vertical"}
             slidesPerView={1}
-            style={{ height: "300px", marginTop: "50px" }}
+            style={{ height: "300px", marginTop: "50px", width: "100vw" }}
             mousewheel={true}
             spaceBetween={30}
             pagination={{
@@ -76,13 +136,16 @@ function Steps() {
             modules={[Mousewheel, Pagination]}
             className="mySwiper"
           >
-            {data.map((items) => {
+            {data.map((items, i) => {
               return (
                 <SwiperSlide>
-                  <div className="steps-card">
+                  <div className="steps-card-mobile">
+                    <span style={{ backgroundColor: items.color }}>
+                      <p>Step {i + 1}</p>
+                    </span>
                     <img src={items.image} alt="" />
                     <h5>{items.name}</h5>
-                    <p></p>
+                    <p>{items.details}</p>
                   </div>
                 </SwiperSlide>
               );

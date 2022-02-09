@@ -33,7 +33,7 @@ function SignUp() {
                 e.target[3].value
               )
                 .then((user) => {
-                  console.log(user.user);
+                  toast("Account Created!")
                 })
                 .catch((err) => {
                   console.log(err);

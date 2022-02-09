@@ -27,54 +27,45 @@ h1{
 .steps-card{
         background-color: white;
         border-radius: 6px;
+        position: relative;
         cursor: pointer;
+        padding: 10px;
+        margin: 10px;
         transition: all 200ms ease;
-        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
         height: 250px;
         width: 250px;
-        margin: 10px auto 10px auto;
         img{
-            // background-color: transparent;
-            height: 80%;
-            width: 90%;
-            margin: 0;
+            height: 60%;
+            width: 60%;
+            
+        }
+        span{
+            position: absolute;
+            left: -10px;
+            padding:10px;
+            display: flex;
+            align-items: center;
+            color: white;
+            p{
+                color: white;
+            }
+            z-index: 9999999;
+            width: auto;
+            height: 20px;
+            background: #60CC86;
+            box-shadow: 0px 4px 16px rgba(96, 204, 134, 0.4);
+            border-radius: 6px;
         }
         p{
-            margin: 0;
             font-family: Poppins;
             font-style: normal;
             font-weight: 600;
-            font-size: auto;
-            line-height: 42px;
-            /* identical to box height */
-
-            text-align: center;
-            letter-spacing: 0.05em;
-
-            color: #3183ED;
-        }
-        &:hover{
-            transform:scale(1.1);
-            
-        }
-    }
-
-
-.steps-card-mobile{
-        background-color: white;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: all 200ms ease;
-        overflow: hidden;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        height: 250px;
-        width: 250px;
-        margin: 10px auto 10px auto;
-        img{
-            height: 80%;
-            width: 90%;
-            margin: 0;
+            color: #5A7184;
+            font-size: 12px;
         }
         h5{
             margin: 0;
@@ -82,9 +73,68 @@ h1{
             font-style: normal;
             font-weight: 600;
             font-size: auto;
-            line-height: 42px;
+            // line-height: 42px;
             /* identical to box height */
+            margin: 0;
+            text-align: center;
+            letter-spacing: 0.05em;
 
+            color: #3183ED;
+        }
+        
+    }
+
+
+.steps-card-mobile{
+        background-color: white;
+        border-radius: 6px;
+        position: relative;
+        cursor: pointer;
+        padding: 10px;
+        transition: all 200ms ease;
+        // overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        height: 250px;
+        width: 250px;
+        margin: 10px auto 10px auto;
+        img{
+            height: 60%;
+            width: 60%;
+            margin: 0;
+        }
+        span{
+            position: absolute;
+            left: -10px;
+            padding:10px;
+            display: flex;
+            align-items: center;
+            color: white;
+            p{
+                color: white;
+            }
+            z-index: 9999999;
+            width: auto;
+            height: 20px;
+            background: #60CC86;
+            box-shadow: 0px 4px 16px rgba(96, 204, 134, 0.4);
+            border-radius: 6px;
+        }
+        p{
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: 600;
+            color: #5A7184;
+            font-size: 12px;
+        }
+        h5{
+            margin: 0;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: 600;
+            font-size: auto;
+            // line-height: 42px;
+            /* identical to box height */
+            margin: 0;
             text-align: center;
             letter-spacing: 0.05em;
 
@@ -110,4 +160,10 @@ height: 70px;
     right:0;
     z-index: -9999;
     height: 70px;
+}
+
+
+
+#steps-parent::-webkit-scrollbar{
+    display: none;
 }
