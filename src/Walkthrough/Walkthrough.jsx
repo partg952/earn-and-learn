@@ -9,6 +9,7 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import fowardArrow from '../Assets/forwardArrow.svg';
 import ContestPage1 from "../Assets/4.png";
+import {useNavigate} from 'react-router-dom'
 import Arrow from "../Assets/arrow.svg";
 import ContestPage2 from "../Assets/5.png";
 import ContestPage3 from "../Assets/6.png";
@@ -18,6 +19,7 @@ import { useState } from "react";
 function Walkthrough() {
   const nextButton = useRef();
   const [currentIndex, setIndex] = useState(0);
+  const history = useNavigate();
   const [nextButtonValue, setValue] =
     useState('Next <ArrowForwardIosIcon style={{ color: "white" }} />');
   console.log(currentIndex);
@@ -99,9 +101,11 @@ function Walkthrough() {
               }
               setIndex(currentIndex + 1);
             }
-          }}
-          
-        >
+            else{
+              history("/questionare")
+            }
+            
+          }}>
           Next
           <img style={{height:'20px'}} src={fowardArrow} alt="" />
         </button>

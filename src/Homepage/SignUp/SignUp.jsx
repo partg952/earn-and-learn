@@ -2,16 +2,21 @@ import React from "react";
 import "./SignUp.scss";
 import SimpleLogin from "../../Assets/simple-login.gif";
 import Google from "../../Assets/google.svg";
+import {useNavigate} from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   getAuth,
+  
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
+import {getDatabase,ref,set} from 'firebase/database';
 import { app } from "../../firebase";
 function SignUp() {
+  const history = useNavigate();
+  const db = getDatabase(app);
   const auth = getAuth(app);
   const googleAuth = new GoogleAuthProvider(auth);
 
@@ -34,6 +39,12 @@ function SignUp() {
               )
                 .then((user) => {
                   toast("Account Created!")
+                  set(ref(db, user.user.uid + "/"), {
+                    email: user.user.email,
+                    name: user.user.displayName,
+                  }).then(() => {
+                    history("/walkthrough");
+                  });
                 })
                 .catch((err) => {
                   console.log(err);
@@ -47,21 +58,21 @@ function SignUp() {
             type="text"
             id="name"
             placeholder="Enter your Name *"
-            required
+            
           />
           <br />
           <input
             type="number"
             id="number"
             placeholder="Enter your Phone Number *"
-            required
+            
           />
           <br />
           <input
             type="password"
             className="password"
             placeholder="Enter a Password *"
-            required
+            
           />
           <br />
           <input
@@ -70,14 +81,14 @@ function SignUp() {
             id=""
             className="password"
             placeholder="Confirm your Password *"
-            required
+            
           />
           <br />
           <input
             type="email"
             id="email"
             placeholder="Enter your email *"
-            required
+            
           />
           <br />
           <div id="checkboxes">
@@ -102,6 +113,12 @@ function SignUp() {
                 signInWithPopup(auth, googleAuth)
                   .then((user) => {
                     console.log(user.user);
+                    set(ref(db,user.user.uid+'/'),{
+                      email:user.user.email,
+                      name:user.user.displayName
+                    }).then(()=>{
+                      history("/walkthrough")
+                    })
                   })
                   .catch((err) => {
                     console.log(err);
