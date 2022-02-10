@@ -9,7 +9,7 @@ import BottomNavbar from "../Assets/bottomNavbar.svg";
 import FormControl from "@mui/material/FormControl";
 import Checkbox from "@mui/material/Checkbox";
 import Stepper from "@mui/material/Stepper";
-import Complete from '../Assets/complete.svg';
+import Complete from "../Assets/complete.svg";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
@@ -21,7 +21,7 @@ import {
   section4,
   section5,
   section6,
-  section7
+  section7,
 } from "./questionsData";
 import { useRef } from "react";
 import { useState } from "react";
@@ -39,13 +39,13 @@ function Questionare() {
   const [isChecked, setChecked] = useState(true);
   console.log(currentIndex);
   const [currentSection, setSection] = useState(section1);
-  console.log(currentSection)
-  const [steps, setSteps] = useState(["1", "2", "3", "4",'5','6']);
-  const [completed,setCompleted] = useState(false);
+  console.log(currentSection);
+  const [steps, setSteps] = useState(["1", "2", "3", "4", "5", "6"]);
+  const [completed, setCompleted] = useState(false);
   const [activeStep, setStep] = useState(0);
   const [answeredQuestions, addQuestions] = useState([]);
   console.log(answeredQuestions);
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("");
   console.log(value);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -73,232 +73,251 @@ function Questionare() {
           );
         })}
       </Stepper>
-      { completed == false && <div id="main-question-div">
-        <h3>Question {currentIndex + 1}</h3>
-        <h5>{currentSection[currentIndex].question}</h5>
-        {/* For type text */}
-        {(currentSection[currentIndex].type == "text" && completed==false) && (
-          <TextField
-            id="outlined-basic"
-            label="Enter your input here"
-            value={value}
-            variant="outlined"
-            onChange={(e) => {
-              setValue(e.target.value);
-            }}
-          />
-        )}
-        {/* for type single choice */}
-        { (currentSection[currentIndex]!=undefined && currentSection[currentIndex].type == "Single Choice" && completed==false) && (
-          <FormControl>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
-              name="radio-buttons-group"
+      {completed == false && (
+        <div id="main-question-div">
+          <h3>Question {currentIndex + 1}</h3>
+          <h5>{currentSection[currentIndex].question}</h5>
+          {/* For type text */}
+          {currentSection[currentIndex].type == "text" && completed == false && (
+            <TextField
+              id="outlined-basic"
+              label="Enter your input here"
               value={value}
-              onChange={(change) => {
-                setValue(change.target.value);
+              variant="outlined"
+              onChange={(e) => {
+                setValue(e.target.value);
               }}
-            >
-              {currentSection[currentIndex].options.map((options) => {
-                return (
-                  <div
-                    style={{
-                      width: "300px",
-                      backgroundColor: "white",
-                      margin: "4px",
-                      padding: "2px",
-                      paddingLeft: "5px",
-                      borderRadius: "8px",
-                    }}
-                  >
-                    <FormControlLabel
-                      value={options}
-                      control={<Radio />}
-                      label={options}
-                    />
-                  </div>
-                );
-              })}
-              {currentSection[currentIndex].other == true && (
-                <>
-                  <div
-                    style={{
-                      width: "300px",
-                      backgroundColor: "white",
-                      margin: "4px",
-                      padding: "2px",
-                      paddingLeft: "5px",
-                      borderRadius: "8px",
-                    }}
-                  >
-                    <FormControlLabel
-                      value={"Other"}
-                      control={<Radio />}
-                      label={"Other"}
-                    />
+            />
+          )}
+          {/* for type single choice */}
+          {currentSection[currentIndex] != undefined &&
+            currentSection[currentIndex].type == "Single Choice" &&
+            completed == false && (
+              <FormControl>
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue="female"
+                  name="radio-buttons-group"
+                  value={value}
+                  onChange={(change) => {
+                    setValue(change.target.value);
+                  }}
+                >
+                  {currentSection[currentIndex].options.map((options) => {
+                    return (
+                      <div
+                        style={{
+                          width: "300px",
+                          backgroundColor: "white",
+                          margin: "4px",
+                          padding: "2px",
+                          paddingLeft: "5px",
+                          borderRadius: "8px",
+                        }}
+                      >
+                        <FormControlLabel
+                          value={options}
+                          control={<Radio />}
+                          label={options}
+                        />
+                      </div>
+                    );
+                  })}
+                  {currentSection[currentIndex].other == true && (
+                    <>
+                      <div
+                        style={{
+                          width: "300px",
+                          backgroundColor: "white",
+                          margin: "4px",
+                          padding: "2px",
+                          paddingLeft: "5px",
+                          borderRadius: "8px",
+                        }}
+                      >
+                        <FormControlLabel
+                          value={"Other"}
+                          control={<Radio />}
+                          label={"Other"}
+                        />
 
-                    <TextField
-                      id="outlined-basic"
-                      style={
-                        value == "Other"
-                          ? { display: "block" }
-                          : { display: "none" }
-                      }
-                      label="Enter your input here"
-                      ref={otherField}
-                      onChange={(e) => {
-                        setOtherText(e.target.value);
-                      }}
-                      variant="outlined"
-                    />
-                  </div>
-                </>
-              )}
-            </RadioGroup>
-          </FormControl>
-        )}
-
-        {(currentSection[currentIndex].type == "Multiple Choice" && completed == false) && (
-          <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
-            {currentSection[currentIndex].options.map((options) => {
-              return (
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      name={options}
-                      onChange={(e) => {
-                        console.log(e.target.checked);
-                        if (e.target.checked) {
-                          if (value != undefined) {
-                            setValue([...value, e.target.name]);
-                          } else {
-                            setValue([options]);
+                        <TextField
+                          id="outlined-basic"
+                          style={
+                            value == "Other"
+                              ? { display: "block" }
+                              : { display: "none" }
                           }
-                        } else {
-                          value.splice(value.indexOf(e.target.name), 1);
-                        }
-                      }}
-                    />
-                  }
-                  label={options}
-                />
-              );
-            })}
-          </FormControl>
-        )}
-        {(currentSection[currentIndex].type == "Scale" && completed == false) && (
-          <FormControl>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
-              row
-              name="radio-buttons-group"
-              value={value}
-              onChange={(change) => {
-                setValue(change.target.value);
-              }}
-            >
-              {currentSection[currentIndex].options.map((options) => {
-                return (
-                  <>
+                          label="Enter your input here"
+                          ref={otherField}
+                          onChange={(e) => {
+                            setOtherText(e.target.value);
+                          }}
+                          variant="outlined"
+                        />
+                      </div>
+                    </>
+                  )}
+                </RadioGroup>
+              </FormControl>
+            )}
+
+          {currentSection[currentIndex].type == "Multiple Choice" &&
+            completed == false && (
+              <FormControl
+                sx={{ m: 3 }}
+                component="fieldset"
+                variant="standard"
+              >
+                {currentSection[currentIndex].options.map((options) => {
+                  return (
                     <FormControlLabel
-                      value={options}
-                      control={<Radio />}
+                      control={
+                        <Checkbox
+                          name={options}
+                          onChange={(e) => {
+                            console.log(e.target.checked);
+                            if (e.target.checked) {
+                              if (value != undefined) {
+                                setValue([...value, e.target.name]);
+                              } else {
+                                setValue([options]);
+                              }
+                            } else {
+                              value.splice(value.indexOf(e.target.name), 1);
+                            }
+                          }}
+                        />
+                      }
                       label={options}
-                      labelPlacement="bottom"
                     />
-                  </>
-                );
-              })}
-            </RadioGroup>
-          </FormControl>
-        )}
-        
-        <br />
-        <button
-          id="submit-button"
-          onClick={() => {
-            otherBoxText.length != 0 &&
-              (currentSection[currentIndex].answer = otherBoxText);
-            otherBoxText.length == 0 &&
-              (currentSection[currentIndex].answer = value);
-             setValue("");
-            console.log(currentSection[currentIndex]);
-            answeredQuestions.length != 0
-              ? addQuestions((prev) => [...prev, currentSection[currentIndex]])
-              : addQuestions([currentSection[currentIndex]]);
-            set(ref(db, userInfo.uid + "/survey"), answeredQuestions).then(
-              () => {
-                
-                setOtherText("");
-                console.log("in then")
-                console.log(
-                  currentSection[currentIndex] ==
-                    currentSection[currentSection.length - 1]
-                );
-                if (currentSection[currentIndex] == currentSection[currentSection.length - 1]) {
-                  console.log("was last question");
-                  if (currentSection == section1) {
-                    console.log("was in section1")
-                    setIndex(0);
-                    setSection(section2);
-                    setStep(activeStep + 1);
-                  } else if (currentSection == section2) {
+                  );
+                })}
+              </FormControl>
+            )}
+          {currentSection[currentIndex].type == "Scale" && completed == false && (
+            <FormControl>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="female"
+                row
+                name="radio-buttons-group"
+                value={value}
+                onChange={(change) => {
+                  setValue(change.target.value);
+                }}
+              >
+                {currentSection[currentIndex].options.map((options) => {
+                  return (
+                    <>
+                      <FormControlLabel
+                        value={options}
+                        control={<Radio />}
+                        label={options}
+                        labelPlacement="bottom"
+                      />
+                    </>
+                  );
+                })}
+              </RadioGroup>
+            </FormControl>
+          )}
+
+          <br />
+          <button
+            id="submit-button"
+            onClick={() => {
+              if (value != undefined && value.length != 0) {
+                otherBoxText.length != 0 &&
+                  (currentSection[currentIndex].answer = otherBoxText);
+                otherBoxText.length == 0 &&
+                  (currentSection[currentIndex].answer = value);
+                setValue("");
+                console.log(currentSection[currentIndex]);
+                answeredQuestions.length != 0
+                  ? addQuestions((prev) => [
+                      ...prev,
+                      currentSection[currentIndex],
+                    ])
+                  : addQuestions([currentSection[currentIndex]]);
+                set(ref(db, userInfo.uid + "/survey"), answeredQuestions).then(
+                  () => {
+                    setOtherText("");
+                    console.log("in then");
+                    console.log(
+                      currentSection[currentIndex] ==
+                        currentSection[currentSection.length - 1]
+                    );
                     if (
-                      section2[section2.length - 1].answer ==
-                      section2[section2.length - 1].options[0]
+                      currentSection[currentIndex] ==
+                      currentSection[currentSection.length - 1]
                     ) {
-                      setIndex(0);
-                      setSection(section3);
-                      setStep(activeStep + 1);
+                      console.log("was last question");
+                      if (currentSection == section1) {
+                        console.log("was in section1");
+                        setIndex(0);
+                        setSection(section2);
+                        setStep(activeStep + 1);
+                      } else if (currentSection == section2) {
+                        if (
+                          section2[section2.length - 1].answer ==
+                          section2[section2.length - 1].options[0]
+                        ) {
+                          setIndex(0);
+                          setSection(section3);
+                          setStep(activeStep + 1);
+                        } else {
+                          setIndex(0);
+                          setSection(section4);
+                          setStep(activeStep + 1);
+                        }
+                      } else if (
+                        currentSection == section3 ||
+                        currentSection == section4
+                      ) {
+                        setIndex(0);
+                        setSection(section5);
+                        setStep(activeStep + 1);
+                      } else if (currentSection == section5) {
+                        setIndex(0);
+                        setSection(section6);
+                        setStep(activeStep + 1);
+                      } else if (currentSection == section6) {
+                        setIndex(0);
+                        setSection(section7);
+                        setStep(activeStep + 1);
+                      } else if (currentSection == section7) {
+                        console.log(answeredQuestions)
+                        set(ref(db,userInfo.uid + '/survey'),answeredQuestions).then(()=>{
+                          console.log("sent")
+                          setStep(activeStep + 1);
+                          setCompleted(true);
+                        })
+                      }
                     } else {
-                      setIndex(0);
-                      setSection(section4);
-                      setStep(activeStep + 1);
+                      setIndex(currentIndex + 1);
                     }
-                  } else if (
-                    currentSection == section3 ||
-                    currentSection == section4
-                  ) {
-                    setIndex(0);
-                    setSection(section5);
-                    setStep(activeStep + 1);
                   }
-                  else if(currentSection == section5){
-                    setIndex(0);
-                    setSection(section6);
-                    setStep(activeStep + 1);
-                  }
-                  else if(currentSection == section6){
-                    setIndex(0);
-                    setSection(section7);
-                    setStep(activeStep + 1);
-                  }
-                  else if(currentSection == section7){
-                    setStep(activeStep+1);
-                    setCompleted(true)
-                  }
-                } else {
-                  setIndex(currentIndex + 1);
-                }
-                
+                );
               }
-            );
-          }}
-          color="success"
-        >
-          Next
-        </button>
-      </div>}
-      {
-          completed == true &&
-          <>
-            <img src={Complete} alt="" />
-            <h2>Congratulations!</h2>
-            <p>you have successfully completed the tour of our app,unfortunately we are not available in your area  yet,but as soon as we come we will notify you,Thank you</p>
-          </>
-        }
+            }}
+            color="success"
+          >
+            Next
+          </button>
+        </div>
+      )}
+      {completed == true && (
+        <>
+          <img src={Complete} alt="" />
+          <h2>Congratulations!</h2>
+          <p>
+            you have successfully completed the tour of our app,unfortunately we
+            are not available in your area yet,but as soon as we come we will
+            notify you,Thank you
+          </p>
+        </>
+      )}
     </div>
   );
 }

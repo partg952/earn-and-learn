@@ -34,16 +34,16 @@ const section1 = [
     answer: "",
   },
   {
-    question: "Are you currently employed?",
-    type: "Single Choice",
-    options: ["Yes", "No"],
-    other: true,
+    question: "What is the language you are most comfortable with?",
+    type: "Multiple Choice",
+    other:false,
+    options: ["English", "Hindi"],
     answer: "",
   },
   {
-    question: "What is the language you are most comfortable with?",
-    type: "Multiple Choice",
-    options: ["English", "Hindi"],
+    question: "Are you currently employed?",
+    type: "Single Choice",
+    options: ["Yes", "No"],
     other: true,
     answer: "",
   },
@@ -54,7 +54,7 @@ const section2 = [
     question: "What are the exams that you are preparing for?",
     type: "Multiple Choice",
     options: ["Bank PO", "SSB", "JEE Mains", "JEE Advanced", "UCEED", "NEET"],
-    other: true,
+    other:false,
     answer: "",
   },
   {
@@ -138,6 +138,14 @@ const section4 = [
     answer: "",
   },
   {
+    question:
+    "Do you follow the suggestions/analysis given to you by these websites to improve your studies?",
+    type: "Single Choice",
+    options: ["Yes", "No"],
+    other: true,
+    answer: "",
+  },
+  {
     question: "What are the features that you prefer in these websites?",
     type: "Multiple Choice",
     options: [
@@ -146,15 +154,7 @@ const section4 = [
       "They should provide detailed analytics of your performance immediately at the end of your exam",
       "They should provide proper guidance for improving performance",
     ],
-    other: true,
-    answer: "",
-  },
-  {
-    question:
-      "Do you follow the suggestions/analysis given to you by these websites to improve your studies?",
-    type: "Single Choice",
-    options: ["Yes", "No"],
-    other: true,
+    other: false,
     answer: "",
   },
 ];
@@ -219,7 +219,7 @@ const section6 = [
       "Average time that you spent on the exam",
       "Your percentage amongst others who have taken the same mock test",
     ],
-    other: true,
+    other: false,
     answer: "",
   },
   {
@@ -280,7 +280,7 @@ const section7 = [
       "The feature of earning money by performing well",
       "The feature of detailed analytics ad personalised comments after a contest",
     ],
-    other: true,
+    other: false,
   },
   {
     question:
