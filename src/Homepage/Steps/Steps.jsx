@@ -92,16 +92,17 @@ function Steps() {
   return (
     <>
       {query ? (
-        <div>
-          <h1>It’s Just a matter of a few steps and you too can win!</h1>
+        <div id='steps' style={{width:''}}>
+          <h1 style={{padding:'2rem'}}>It’s Just a matter of a few steps <br /> and you too can win!</h1>
           <div
             id="steps-parent"
             onScroll={(e)=>{
               e.preventDefault();
               console.log(e);
             }}
-            style={{ overflowX: "auto"}}
+            style={{ overflowX: "scroll"}}
           >
+            
             <Stepper>
               {data.map((items, i) => {
                 return (
@@ -119,9 +120,9 @@ function Steps() {
           </div>
         </div>
       ) : (
-        <>
-          <h1 style={{ fontSize: "5vw" }}>
-            It’s Just a matter of a few steps and{" "}
+        <div id='steps' style={{marginTop:'2rem'}}>
+          <h1 style={{ fontSize: "2rem" ,padding:'2rem'}}>
+            It’s Just a matter of a few steps and{" "} <br />
             <b style={{ color: "orange" }}> you too can win! 🎉</b>
           </h1>
           <Swiper
@@ -151,7 +152,7 @@ function Steps() {
               );
             })}
           </Swiper>
-        </>
+        </div>
       )}
     </>
   );

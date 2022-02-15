@@ -7,12 +7,12 @@ function Footer ()
       <div>
         <footer>
           <img src={LogoWhite} alt="" />
-          <p style={{width:'90vw',margin:'0 auto 0 auto'}}>Play with us to get a step closer to your dreams!</p>
+          <p style={{width:'90vw',margin:'2rem auto 2rem auto'}}>Play with us to get a step closer to your dreams!</p>
           <span>
-            <p>Home</p>
-            <p>About</p>
-            <p>Our Product</p>
-            <p>Contact Us</p>
+            <a href="#first-section">Home</a>
+            <a href='#steps'>About</a>
+            <a href='#mobile'>Our Product</a>
+            <a href='#sign-up'>Create Account</a>
           </span>
           <hr />
           <h6>© 2021 All Rights Reserved</h6>

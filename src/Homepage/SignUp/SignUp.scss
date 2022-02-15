@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-#main-box{
+
+#main-box {
     width: 60vw;
     background-color: red;
     margin: 10px auto 10px auto;
@@ -10,8 +11,10 @@
     border-radius: 15px;
     padding: 10px 10px 40px 30px;
     font-family: 'Poppins';
-    input{
+
+    .text-inputs {
         padding: 10px;
+        width: 50%;
         margin: 10px;
         border: 0px solid transparent;
         border-bottom: 1px solid rgba(0, 0, 0, 0.623);
@@ -19,23 +22,29 @@
         font-family: 'Poppins';
         outline: none;
     }
-    label{
+
+    label {
         margin: 10px;
     }
-    input[type="checkbox"]{
+
+    input[type="checkbox"] {
         background-color: black;
         margin: 10px;
     }
-    #simple-login{
-        height: 400px;
+
+    #simple-login {
+        height: 300px;
         width: auto;
+        margin-top: 100px;
+        margin-right: 30px;
         float: right;
     }
 
-    #buttons{
+    #buttons {
         display: flex;
         align-items: center;
-        #create-account{
+
+        #create-account {
             background: #60CC86;
             box-shadow: 0px 10.0109px 25.0273px rgba(21, 37, 72, 0.1);
             border-radius: 8px;
@@ -55,7 +64,7 @@
             font-size: 20px;
         }
 
-        #google{
+        #google {
             display: flex;
             align-items: center;
             background: #FFFFFF;
@@ -68,7 +77,8 @@
             flex: none;
             order: 2;
             flex-grow: 0;
-            font-family: 'Roboto', sans-serif;;
+            font-family: 'Roboto', sans-serif;
+            ;
             font-style: normal;
             font-weight: 500;
             font-size: 18px;
@@ -77,53 +87,72 @@
 
 
             color: rgba(0, 0, 0, 0.54);
-            margin:20px;
-            *{
+            margin: 20px;
+
+            * {
                 margin: 10px;
             }
         }
     }
-    #name{
-    background-image: url(../../Assets/user.svg);
-    background-repeat: no-repeat;
-    text-indent: 40px;
-    background-position-y: 5px;
+
+    #name {
+        background-image: url(../../Assets/user.svg);
+        background-repeat: no-repeat;
+        text-indent: 40px;
+        background-size: 18px 18px;
+        background-position-y: 10px;
     }
-    #email{
-    background-image: url(../../Assets/letter.svg);
-    background-repeat: no-repeat;
-    text-indent: 40px;
-    background-position-y: 7px;
+
+    #email {
+        background-image: url(../../Assets/letter.svg);
+        background-repeat: no-repeat;
+        text-indent: 40px;
+        background-size: 18px 18px;
+        background-position-y: 10px;
     }
-    .password{
-    background-image: url(../../Assets/lock.svg);
-    background-repeat: no-repeat;
-    text-indent: 40px;
-    background-position-y: 0px;
+
+    .password {
+        background-image: url(../../Assets/lock.svg);
+        background-repeat: no-repeat;
+        text-indent: 40px;
+        background-size: 18px 18px;
+        background-position-y: 10px;
     }
-    #number{
-    background-image: url(../../Assets/number.svg);
-    background-repeat: no-repeat;
-    text-indent: 40px;
-    background-position-y: 12px;
+
+    #number {
+        background-image: url(../../Assets/number.svg);
+        background-repeat: no-repeat;
+        text-indent: 40px;
+        background-size: 18px 18px;
+        background-position-y: 10px;
     }
-    @media only screen and (max-width: 540px){
+
+    @media only screen and (max-width: 540px) {
         width: 85vw;
-        label{
+
+        label {
             font-size: 12px;
             margin: 0;
         }
-        #simple-login{
+
+        #simple-login {
             display: none;
         }
     }
-    @media only screen and (max-width: 790px){
-        #buttons{
+
+    @media only screen and (max-width: 790px) {
+        .text-inputs {
+            width: 90%;
+            margin-right: 0;
+        }
+
+        #buttons {
             text-align: center;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            button{
+
+            button {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -134,4 +163,3 @@
     }
 
 }
-

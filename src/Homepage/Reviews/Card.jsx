@@ -1,7 +1,12 @@
 import React from 'react';
 import './Card.scss';
 import Commas from '../../Assets/commas.png';
+import {useMediaQuery} from 'react-responsive'
 function Card({story,by,preparingFor}) {
+  const query = useMediaQuery({
+    query: "(min-width:960px)",
+  });
+   
     return (
       <div className="review-cards">
         <img id='commas' src={Commas} alt="" />

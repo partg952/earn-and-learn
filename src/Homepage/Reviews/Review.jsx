@@ -7,7 +7,13 @@ import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Card from './Card';
+import Card from "./Card";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import required modules
+import { Mousewheel, Pagination } from "swiper";
 import InfiniteCarousel from "react-leaf-carousel";
 function Review() {
   const settings = {
@@ -50,14 +56,21 @@ function Review() {
     <>
       {query ? (
         <>
-          <div id="review-parent">
+          <div id="review-parent" style={{marginTop:'5rem !important'}}>
             <img id="single-unit" src={SingleUnit} alt="" />
             <div className="review-child">
               <span>
-                <img id="comma" src={Commas} alt="" />
-                <h1>Read what people say about us!</h1>
+                <div>
+                  <img id="comma" src={Commas} alt="" />
+                </div>
+                <div>
+                  <h1>
+                    {" "}
+                    <b  style={{color:'white'}}>Re</b>ad what people say about us!
+                  </h1>
+                  <p style={{marginTop:'-20px'}}>Get to know us through these stories</p>
+                </div>
               </span>
-              <p>Get to know us through these stories</p>
               {reviewData1.map((items) => (
                 <Card
                   by={items.by}
@@ -78,23 +91,36 @@ function Review() {
           </div>
         </>
       ) : (
-        <div className="review-child">
+        <div className="review-child" style={{marginTop:'5rem',textAlign:'left'}}>
           <span>
-            <img id="comma" src={Commas} alt="" />
-            <h1>Read what people say about us!</h1>
+            <img id="comma" style={{height:'150px',marginBottom:'-20px',marginLeft:'20px'}} src={Commas} alt="" />
+            <h1 style={{fontSize:'2rem',padding:'2rem',textAlign:'left'}}>Read what people say about us!</h1>
           </span>
-          <p>Get to know us through these stories</p>
-          <Carousel autoPlay={true}>
+          <p style={{marginTop:'-30px',marginLeft:'25px'}}>Get to know us through these stories</p>
+          <Swiper
+            direction={"vertical"}
+            slidesPerView={1}
+            style={{ height: "300px", marginTop: "50px", width: "100vw" }}
+            mousewheel={true}
+            spaceBetween={30}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Mousewheel, Pagination]}
+            className="mySwiper"
+          >
             {totalReviews.map((items, i) => {
               return (
-                <Card
-                  by={items.by}
-                  story={items.story}
-                  preparingFor={items.preparingFor}
-                />
+                <SwiperSlide>
+                  <Card
+                    by={items.by}
+                    story={items.story}
+                    preparingFor={items.preparingFor}
+                  />
+                </SwiperSlide>
               );
             })}
-          </Carousel>
+          </Swiper>
         </div>
       )}
     </>

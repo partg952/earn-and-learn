@@ -2,7 +2,7 @@
 nav{
     z-index: 100;
     display: flex;
-    width: 100vw;
+    width: 100%;
     align-items: center;
     padding: 10px 0px 10px 0px;
     justify-content: space-around;
@@ -19,9 +19,14 @@ nav{
         justify-content: space-between;
         transition: all 200ms ease;
         padding: 10px;
+        a{
+            color: black;
+            text-decoration: none;
+        }
         *{
             margin: 10px;
         }
+        
     }
     #close-menu{
         display: none;
@@ -60,10 +65,12 @@ nav{
         right: 0;
         background-color: white;
         transform: translateX(400px);
-        p{
+        a{
             display: flex;
             align-items: center;
             justify-content: space-between;
+            color: black;
+            text-decoration: none;
             width: 130%;
             img{
                 height: 20px;

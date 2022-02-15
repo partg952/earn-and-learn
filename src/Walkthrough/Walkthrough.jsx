@@ -15,6 +15,11 @@ import ContestPage2 from "../Assets/5.png";
 import ContestPage3 from "../Assets/6.png";
 import TestPage from "../Assets/7.png";
 import WinnerResults from "../Assets/8.png";
+import PrizeMoney1 from '../Assets/9.png';
+import PrizeMoney2 from '../Assets/10.png';
+import Analytics from '../Assets/11.png';
+import Comparision from '../Assets/12.png';
+import Swot from '../Assets/13.png';
 import { useState } from "react";
 function Walkthrough() {
   const nextButton = useRef();
@@ -61,8 +66,28 @@ function Walkthrough() {
     },
     {
       caption:
-        "Choose the exam that you want to ace! You can choose as many tests as you wish to from the available list.",
+        "Know your marks, your overall rank and your rank in the group that you were placed in accourding to your performance analysis.  See hpw much you’ve earned if you won!",
       image: WinnerResults,
+    },
+    {
+      caption:
+        "Redeem your money if you’ve won and view your name amongst all the other contestants.",
+      image: PrizeMoney1,
+    },
+    {
+      caption:
+        "View your name and rank amongst the contestats in the group you were assigned to!",
+      image: PrizeMoney2,
+    },
+    {
+      caption:
+        "View the analytics of your performance and get interactive graphical representation of your performance statistics through top of the class AI analytics.",
+      image: Analytics,
+    },
+    {
+      caption:
+        "Compare your performance with other contestants of you choice and get personalised comments about your strong and weak points, opportunities for improvement and any threats to your road to success!",
+        image:Swot
     },
   ];
   return (

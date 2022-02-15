@@ -68,7 +68,7 @@ const section2 = [
     answer: "",
   },
   {
-    question: "How do you practice...",
+    question: "How do you practice",
     type: "Single Choice",
     options: [
       "Offline",

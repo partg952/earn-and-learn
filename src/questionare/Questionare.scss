@@ -1,8 +1,14 @@
+
 #question-parent {
+    overflow-y: hidden;
     text-align: left;
     padding: 10px;
     height: 100vh;
     position: relative;
+    #questions-list{
+        overflow-y: auto;
+        height: 200px;
+    }
 
     #top-navbar {
         position: fixed;
@@ -15,6 +21,10 @@
         z-index: 99999999;
         margin: 0 auto 0 auto;
 
+    }
+
+    #main-question-div {
+        overflow-y: auto;
     }
 
     #bottom-navbar {
@@ -31,22 +41,43 @@
 
     }
 
-    #submit-button {
-        width: 90%;
-        margin: 0 auto 0 auto;
-        position: absolute;
-        bottom: 100px;
-        background: #60CC86;
-        border: 0;
-        left: 0;
-        right: 0;
-        outline: none;
-        padding: 10px;
-        box-shadow: 0px 3.50365px 14.0146px rgba(0, 0, 0, 0.25);
-        border-radius: 7.0073px;
-    }
+
+
+
 
     #main-question-div {
         // padding: 10px;
     }
+}
+
+#submit-button {
+    width: 90%;
+    margin: 0 auto 0 auto;
+    position: absolute;
+    bottom: 100px;
+    background: #60CC86;
+    border: 0;
+    left: 0;
+    right: 0;
+    outline: none;
+    padding: 10px;
+    box-shadow: 0px 3.50365px 14.0146px rgba(0, 0, 0, 0.25);
+    border-radius: 7.0073px;
+}
+
+#popup {
+    position: fixed;
+    top: 30%;
+    height: 200px;
+    transition: all 200ms ease;
+    transform: translateY(600px);
+    width: 300px;
+    padding: 10px;
+    bottom: 50%;
+    right: 0;
+    border-radius: 6px;
+    left: 0;
+    margin: 0 auto 0 auto;
+    background: red;
+    z-index: 999999999999999999999999;
 }

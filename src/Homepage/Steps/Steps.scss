@@ -7,23 +7,11 @@ h1{
     line-height: 48px;
     text-align: center;
     letter-spacing: 0.200218px;
-    text-transform: capitalize;
+    // text-transform: capitalize;
     color: #3D3D3D;
 }
 
-#steps{
-    display: grid;
-    width: 50vw;
-    grid-template-columns: repeat(auto-fit,300px);
-    margin: 0 auto 0 auto;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    
-}
+
 .steps-card{
         background-color: white;
         border-radius: 6px;
@@ -164,6 +152,3 @@ height: 70px;
 
 
 
-#steps-parent::-webkit-scrollbar{
-    display: none;
-}

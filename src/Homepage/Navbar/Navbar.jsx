@@ -23,18 +23,18 @@ function Navbar() {
                     "translateX(400px)";
                 }}
               />
-              <p>
+              <a href='#first-section'>
                 Home <img src={Arrow} alt="" />
-              </p>
-              <p>
+              </a>
+              <a href='#steps'>
                 About Us <img src={Arrow} alt="" />
-              </p>
-              <p>
+              </a>
+              <a href='#mobile'>
                 Our Product <img src={Arrow} alt="" />
-              </p>
-              <p id='create-account'>
+              </a>
+              <a id='create-account' href='#sign-up'>
                 Create Account! <img src={Arrow} alt="" />
-              </p>
+              </a>
             </span>
             <img
               src={Hamburger}
@@ -56,9 +56,9 @@ function Navbar() {
                     "translateX(400px)";
                 }}
               />
-              <p>Home</p>
-              <p>About Us</p>
-              <p>Our Product</p>
+              <a href='#first-section'>Home</a>
+              <a href='#steps'>About Us</a>
+              <a href='#mobile'>Our Product</a>
             </span>
             <img
               src={Hamburger}
